@@ -1,6 +1,6 @@
 package learn_spring.framework_intro.game;
 
-public class SuperContraGame {
+public class SuperContraGame implements Game {
     public void up() {
         System.out.println("SuperContraGame Up");
     }
