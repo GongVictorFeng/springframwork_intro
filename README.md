@@ -48,3 +48,19 @@ framework.
       the lifecycle of beans and dependencies.
       * Types: ApplicationContext (complex), BeanFactory(simpler features)
     * Autowiring: Process of wiring in dependencies for a Spring Bean
+
+### Q3: Does the Spring Framework really add value? 
+  * Real World application are much more complex:
+    * Multiple Layers (Web, Business, Data etc) Web -> Business -> Data -> Database
+    * Each layer is dependent on the layer below it
+      * Example: Business Layer class talks to a Data Layer class - data layer class is a dependency of Business layer class
+      * There are thousands of such dependencies in every application
+  * With Spring Framework:
+    * Instead of focusing on objects, their dependencies and wiring 
+      * developers can focus on the business logic of the application
+    * Spring Framework manages the lifecycle of objects:
+      * Mark components using annotations: @Component (and others..)
+      * Mark dependencies using @Autowired
+      * Allow Spring Framework to do its magic
+  * Example: Controller -> BusinessService(sum) -> DataService(data)
+    * see implementation:https://github.com/GongVictorFeng/springframwork_intro/commit/3c8f0344166748a5a952e11bd49a8e19cc00b62a
