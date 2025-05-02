@@ -48,6 +48,7 @@ framework.
       the lifecycle of beans and dependencies.
       * Types: ApplicationContext (complex), BeanFactory(simpler features)
     * Autowiring: Process of wiring in dependencies for a Spring Bean
+    * @Primary: is used when there are multiple matching components
 
 ### Q3: Does the Spring Framework really add value? 
   * Real World application are much more complex:
@@ -64,3 +65,36 @@ framework.
       * Allow Spring Framework to do its magic
   * Example: Controller -> BusinessService(sum) -> DataService(data)
     * see implementation:https://github.com/GongVictorFeng/springframwork_intro/commit/3c8f0344166748a5a952e11bd49a8e19cc00b62a
+
+### Q4: How is Spring JAR downloaded? (Maven)
+  * What happens if you manually download Spring JAR?
+    * Spring JAR needs other JARS - transitive dependencies
+      * needs to download all the transitive dependencies jars
+    * What if you need to upgrade to a new version
+  * Maven: Manage JARs needed by apps (application dependencies)
+    * Once you add a dependency on Spring framework, Maven would download spring framework and its dependencies
+  * All configuration in pom.xml
+    * Maven artifacts: Identified by the group id, an Artifact id
+  * Important Features:
+    * Defines a simple project setup that follows best practices
+    * Enables consistent usage across all projects
+    * Manages dependency updates and transitive dependencies
+  * Terminology Warning: Spring Dependency vs Maven Dependency:
+    * Maven dependency is a jar that application needs
+    * Spring dependency is a spring bean
+
+### Dependency Injection Types:
+  * Constructor-based: Dependencies are set by creating the Bean using its Constructor (recommendation)
+  * Setter-based: Dependencies are set by calling setter methods on beans
+  * Filed: No setter or constructor, dependency is injected using reflection
+
+### Spring Modules
+  * Spring Framework is divided into modules:
+    * Core: IoC Container etc
+    * Testing: Mock Objects, Spring MVC Test etc
+    * Data Access: Transactions, JDBC, JPA etc
+    * Web Servlet: Spring MVC etc
+    * Web Reactive: Spring WebFlux etc
+    * Integration: JMS etc
+  * Each application can choose the  modules they want to make use of
+    * They do not need to make use of all things in Spring framework
